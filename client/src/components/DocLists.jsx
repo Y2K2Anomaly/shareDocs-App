@@ -89,7 +89,7 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
                     }
                     <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedName }}></td>
                 </div>
-                <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedDesc }}></td>
+                <td className="py-2 px-4 hidden md:table-cell" dangerouslySetInnerHTML={{ __html: highlightedDesc }}></td>
             </tr>
         )
     }
@@ -101,7 +101,7 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
                 <h1 className='text-lg font-semibold'>counts: {!searchInput ? files?.length : filteredFiles.length}</h1>
                 <input
                     type="text"
-                    className='SearchInput border h-[32px] border-b-gray-500 text-lg px-1 py-1 outline-none mr-2'
+                    className='SearchInput border h-[32px] w-40 sm:w-52 border-b-gray-500 text-lg px-1 py-1 outline-none mr-2'
                     placeholder="Search any file"
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
@@ -110,10 +110,10 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
             <hr />
             <div className="DocumentList px-2 max-h-80 overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
                 <table className="w-full">
-                    <thead className="bg-gray-200 text-left sticky top-0 z-10">
+                    <thead className="bg-gray-200 text-center sm:text-left sticky top-0 z-10">
                         <tr>
                             <th className="py-2 px-4">Document Name</th>
-                            <th className="py-2 px-4">Description</th>
+                            <th className="py-2 px-4 hidden md:table-cell">Description</th>
                         </tr>
                     </thead>
                     <tbody>
