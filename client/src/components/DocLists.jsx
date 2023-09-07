@@ -1,7 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { IconButton } from '@mui/material';
-import { Delete, Download } from '@mui/icons-material';
 
 const DocLists = ({ files, setFiles, scrollRef }) => {
     const [filteredFiles, setFilteredFiles] = useState([]);
@@ -58,15 +56,6 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
             <tr className="border-t" ref={scrollRef}>
                 <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedName }}></td>
                 <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedDesc }}></td>
-                <td className="py-2 px-4">{file?.downloadCount}</td>
-                <td className="py-2 px-2">
-                    <IconButton onClick={() => handleDownloadClick(file?.downloadlink)}>
-                        <Download color='primary' />
-                    </IconButton>
-                    <IconButton onClick={() => onDeleteHandler(file?._id)}>
-                        <Delete sx={{ color: "red" }} />
-                    </IconButton>
-                </td>
             </tr>
         )
     }
@@ -98,8 +87,6 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
                         <tr>
                             <th className="py-2 px-4">Document Name</th>
                             <th className="py-2 px-4">Description</th>
-                            <th className="py-2 px-4">Download Count</th>
-                            <th className="py-2 px-4">Options</th>
                         </tr>
                     </thead>
                     <tbody>

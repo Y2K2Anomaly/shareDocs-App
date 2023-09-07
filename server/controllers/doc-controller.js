@@ -12,11 +12,6 @@ export const uploadDoc = async (req, res) => {
     try {
         const newFile = await File.create(fileObj)
 
-        const downloadlink = `https://sharedocs-api.onrender.com/files/download/${newFile._id}`;
-
-        newFile.downloadlink = downloadlink;
-        await newFile.save();
-
         res.status(201).json(newFile)
     } catch (error) {
         console.error(error.message)
@@ -33,13 +28,3 @@ export const getAllFiles = async (req, res) => {
         return response.status(500).json({ error: error.message })
     }
 }
-
-export const deleteFile = async (req, res) => {
-    try {
-        await File.findByIdAndDelete(req.params.fileId);
-        res.status(200).json("Deleted Successfully")
-    } catch (error) {
-        console.log(error.message);
-        return response.status(500).json({ error: error.message })
-    }
-} 
