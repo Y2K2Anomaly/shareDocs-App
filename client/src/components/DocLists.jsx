@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { IconButton } from '@mui/material';
+import { Download } from '@mui/icons-material';
 
 const DocLists = ({ files, setFiles, scrollRef }) => {
     const [filteredFiles, setFilteredFiles] = useState([]);
@@ -30,15 +32,6 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
         setFilteredFiles(filteredList);
     }, [searchInput, files])
 
-    async function onDeleteHandler(fileId) {
-        try {
-            await axios.post(`/files/delete/${fileId}`)
-            setFiles((prevFiles) => prevFiles.filter((file) => file._id !== fileId));
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
-
     function highlightKeywords(text, keywords) {
         if (!keywords || keywords?.length === 0) {
             return text;
@@ -54,7 +47,12 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
 
         return (
             <tr className="border-t" ref={scrollRef}>
-                <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedName }}></td>
+                <div className='flex items-center'>
+                    <IconButton onClick={() => handleDownloadClick(file?.downloadlink)}>
+                        <Download color='primary' />
+                    </IconButton>
+                    <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedName }}></td>
+                </div>
                 <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedDesc }}></td>
             </tr>
         )
@@ -81,7 +79,7 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
                 />
             </div>
             <hr />
-            <div className="DocumentList px-2 max-h-80 overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+            <div className="DocumentList px-2 max-h-80 overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
                 <table className="w-full">
                     <thead className="bg-gray-200 text-left sticky top-0 z-10">
                         <tr>
