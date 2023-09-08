@@ -126,9 +126,9 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
                 <hr />
                 <div className="DocumentList px-2 max-h-80 overflow-x-hidden overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
                     <table className="w-full">
-                        <thead className="bg-gray-200 text-center sm:text-left sticky top-0 z-10">
+                        <thead className="bg-gray-200 text-left sticky top-0 z-10">
                             <tr>
-                                <th className="py-2 px-4">Document Name</th>
+                                <th className="py-2 px-24">Document Name</th>
                                 <th className="py-2 px-4 hidden md:table-cell">Description</th>
                             </tr>
                         </thead>
