@@ -1,6 +1,8 @@
 # shareDocs-App
 file sharing app assignment for Aumyaa
 
+#### Live = https://sharedocs.vercel.app/
+
 ## Features
 - upload files in the following formats: pdf, excel, and word docx.
 - copy the file download link and can share.
