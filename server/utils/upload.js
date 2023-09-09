@@ -2,10 +2,12 @@ import multer from 'multer';
 import { Dropbox } from 'dropbox';
 import fs from 'fs';
 import File from '../models/File.js';
+import dotenv from "dotenv";
 
+dotenv.config();
 const upload = multer({ dest: 'uploads' });
 
-const dropbox = new Dropbox({ accessToken: 'sl.BltygdJlXpr2ndAfPTIHiEQWVboqCZzg-FDBCIri9aKkxP9dLuowjtWmDuLMBiwsf9BQx2IV90TPW7mxq4e-2aEYn_OWRrO-lSZMSOMOlL5CGZAYBgdFkFSc0Gn-EHHMWu50Eyeao9B_YM1CBkJU2qo' });
+const dropbox = new Dropbox({ accessToken: process.env.ACCESS_TOKEN });
 
 const uploadFile = async (req, res) => {
     if (!req.file) {

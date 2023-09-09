@@ -95,9 +95,8 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
 
         return (
             <tr
-                className="border-t hover:text-blue-500 cursor-pointer transition delay-125 duration-150 ease-out"
+                className="border-t"
                 ref={scrollRef}
-                onClick={() => { window.open(file?.dropboxPath, '_blank'); }}
             >
                 <div className='flex items-center'>
                     <IconButton onClick={() => handleDownloadClick(file?.downloadlink)}>
@@ -111,7 +110,7 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
                             {copyFileId === file?._id ? <ContentPaste color='primary' /> : <FileCopy color='primary' />}
                         </IconButton>
                     }
-                    <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedName }}></td>
+                    <td className="py-2 px-4 hover:text-blue-500 cursor-pointer transition delay-125 duration-150 ease-out" dangerouslySetInnerHTML={{ __html: highlightedName }} onClick={() => { window.open(file?.dropboxPath, '_blank'); }}></td>
                 </div>
                 <td className="py-2 px-4 hidden md:table-cell" dangerouslySetInnerHTML={{ __html: highlightedDesc }}></td>
                 <td className="py-2 px-4 hidden md:table-cell">{formatFileSize(file?.fileSize)}</td>
