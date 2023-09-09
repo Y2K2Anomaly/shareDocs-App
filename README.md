@@ -5,7 +5,7 @@ file sharing app assignment for Aumyaa
 
 ## Features
 - upload files in the following formats: pdf, excel, and word docx.
-- copy the file download link and can share.
+- read a file & copy the file download link and can share.
 - can download file through download icon button.
 - search any file by their name or description.
 
