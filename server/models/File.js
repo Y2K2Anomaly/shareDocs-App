@@ -1,22 +1,19 @@
 import mongoose from "mongoose";
 
 const fileSchema = new mongoose.Schema({
-    path: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true
     },
-    downloadCount: {
-        type: Number,
-        required: true,
-        default: 0
-    },
     desc: {
         type: String,
         required: true
+    },
+    fileSize: {
+        type: Number
+    },
+    dropboxPath: {
+        type: String
     },
     downloadlink: {
         type: String

@@ -78,6 +78,21 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
             }
         };
 
+        function formatFileSize(fileSizeInBytes) {
+            if (fileSizeInBytes < 1024) {
+                // Display in bytes if less than 1 KB
+                return fileSizeInBytes + ' B';
+            } else if (fileSizeInBytes < 1024 * 1024) {
+                // Display in kilobytes if less than 1 MB
+                const fileSizeInKB = fileSizeInBytes / 1024;
+                return fileSizeInKB.toFixed(2) + ' KB';
+            } else {
+                // Display in megabytes if 1 MB or more
+                const fileSizeInMB = fileSizeInBytes / (1024 * 1024);
+                return fileSizeInMB.toFixed(2) + ' MB';
+            }
+        }
+
         return (
             <tr className="border-t" ref={scrollRef}>
                 <div className='flex items-center'>
@@ -92,9 +107,10 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
                             {copyFileId === file._id ? <ContentPaste color='primary' /> : <FileCopy color='primary' />}
                         </IconButton>
                     }
-                    <td className="py-2 px-4" dangerouslySetInnerHTML={{ __html: highlightedName }}></td>
+                    <td className="py-2 px-4 hover:text-blue-500 cursor-pointer" dangerouslySetInnerHTML={{ __html: highlightedName }} onClick={() => { window.open(file.dropboxPath, '_blank'); }}></td>
                 </div>
                 <td className="py-2 px-4 hidden md:table-cell" dangerouslySetInnerHTML={{ __html: highlightedDesc }}></td>
+                <td className="py-2 px-4 hidden md:table-cell">{formatFileSize(file.fileSize)}</td>
             </tr>
         )
     }
@@ -130,6 +146,7 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
                             <tr>
                                 <th className="py-2 px-24">Document Name</th>
                                 <th className="py-2 px-4 hidden md:table-cell">Description</th>
+                                <th className="py-2 px-4 hidden md:table-cell">File Size</th>
                             </tr>
                         </thead>
                         <tbody>
