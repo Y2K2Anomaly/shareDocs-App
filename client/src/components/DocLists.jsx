@@ -85,11 +85,11 @@ const DocLists = ({ files, setFiles, scrollRef }) => {
             } else if (fileSizeInBytes < 1024 * 1024) {
                 // Display in kilobytes if less than 1 MB
                 const fileSizeInKB = fileSizeInBytes / 1024;
-                return fileSizeInKB.toFixed(2) + ' KB';
+                return fileSizeInKB.toFixed(0) + ' KB';
             } else {
                 // Display in megabytes if 1 MB or more
                 const fileSizeInMB = fileSizeInBytes / (1024 * 1024);
-                return fileSizeInMB.toFixed(2) + ' MB';
+                return fileSizeInMB.toFixed(0) + ' MB';
             }
         }
 
