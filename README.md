@@ -10,4 +10,4 @@ file sharing app assignment for Aumyaa
 - search any file by their name or description.
 
 # tools and technologies used
-  MERN, TailwindCSS, @materialUI icons, multer, vercel, render.com 
+  MERN, TailwindCSS, @materialUI icons, multer, dropBox, vercel, render.com 
