@@ -5,7 +5,7 @@ import File from '../models/File.js';
 
 const upload = multer({ dest: 'uploads' });
 
-const dropbox = new Dropbox({ accessToken: 'sl.BlvQy6I3Ups11-W1VVN79L8WjuGa2KnOPZW9VSWG4hfzyyqlmKCgYuqYHJu8364ZMFpm1fbF4HHNnZ7-j3rBuTcKD9xRP3-lJLSwSjtuP8XoBmp1OZkMr-IYaevMZjxFxQ5URu4A2xUkg-Y' });
+const dropbox = new Dropbox({ accessToken: 'sl.BlvEn4mTcznNWtVCBiOuEcSfyv8XxE6-YFbpeKuDiLFLMPfrcGXU5KBDkYWCSpUHyeBBT9wiAZxz9HOTsbihM1wZxwO-hI1ducomE3524_0MkeD26cwYmGzEO7tmk8CnsaKtcZGxwFoyBD4' });
 
 const uploadFile = async (req, res) => {
     if (!req.file) {
