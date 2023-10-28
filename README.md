@@ -8,6 +8,7 @@ file sharing app assignment for Aumyaa
 - read a file & copy the file download link and can share.
 - can download file through download icon button.
 - search any file by their name or description.
+- search any keyword in a document.
 
 # tools and technologies used
   MERN, TailwindCSS, @materialUI icons, multer, dropBox, vercel, render.com 
